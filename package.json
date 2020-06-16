@@ -1,0 +1,27 @@
+{
+  "name": "pixb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varunwahi10/pixb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varunwahi10/pixb/issues"
+  },
+  "homepage": "https://github.com/varunwahi10/pixb#readme",
+  "dependencies": {
+    "@google-cloud/language": "^4.1.0",
+    "@google-cloud/vision": "^2.1.0",
+    "axios": "^0.19.2",
+    "canvas": "^2.6.1",
+    "node-telegram-bot-api": "^0.50.0"
+  }
+}
