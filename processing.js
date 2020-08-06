@@ -186,51 +186,11 @@ async function reverseImageSearch(image_path){
         webDetection.pagesWithMatchingImages.forEach((page,index) => {
             response+=`\n${index+1}. <a href='${page.url}'> ${page.pageTitle}</a>\n`
 
-
-            // if(page.fullMatchingImages.length){
-            //     response += "\n     Full Matching Images : \n"
-            //     page.fullMatchingImages = reduceLength(page.fullMatchingImages)
-            //     page.fullMatchingImages.forEach((image,index)=>{
-            //         response+=`     <a href='${image.url}'> Image ${index+1}</a>\n`
-            //     })
-            // }
-
-            // if(page.partialMatchingImages.length){
-            //     response += "\n     Partial Matching Images : \n"
-            //     page.partialMatchingImages = reduceLength(page.partialMatchingImages)
-            //     page.partialMatchingImages.forEach((image,index)=>{
-            //         response+=`     <a href='${image.url}'> Image ${index+1}</a>\n`
-            //     })
-            // }
         });
     }
 
-    // if (webDetection.partialMatchingImages.length) {
-    //   console.log(
-    //     `Partial matches found: ${webDetection.partialMatchingImages.length}`
-    //   );
-    //   webDetection.partialMatchingImages.forEach(image => {
-    //     console.log(`  URL: ${image.url}`);
-    //     console.log(`  Score: ${image.score}`);
-    //   });
-    // }
-
     return response
 }
-
-// async function textDetection(image_path){
-//     let response = "Text detection : \n"
-//     const client = new vision.ImageAnnotatorClient()
-//     const [result] = await client.textDetection(image_path);
-//     const detections = result.textAnnotations;
-//     if(detections.length){
-//         response+=detections[0].description
-//     }
-
-//     return response
-// }
-
-// textDetection('./images/image.jpg')
 
 async function documentTextDetection(image_path){
     let response = "Document text detection : \n"
@@ -354,9 +314,6 @@ async function entityAnalysis(text){
                     response+=`\n  ${index}. DATE - <a href='${calenderLink}'>${entity.name}</a>`
                 }
 
-                // if(entity.type == ""){
-                //     response+=`\n${index+1}. PERSON - <a href='${entity.metadata.wikipedia_url}'>${entity.name}</a>\n`
-                // }
 
             })
             if(response == "\nEntities : \n")
@@ -409,11 +366,6 @@ async function drawPng(colorsArray){
     })
     var image = canvas.toDataURL();
     var data = image.replace(/^data:image\/png;base64,/, "");
-
-    //memfs.mkdirpSync("./images");
-    //memfs.writeFileSync('./images/dominantColors.png',data,'base64')
-
-    // memfs.writeFileSync('/images/dominantColors.png',data, 'base64');
 
     Fs.writeFile("./images/dominantColors.png", data, 'base64', function(err) {
         if(err){
