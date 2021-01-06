@@ -20,7 +20,7 @@
   "dependencies": {
     "@google-cloud/language": "^4.1.0",
     "@google-cloud/vision": "^2.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "canvas": "^2.6.1",
     "node-telegram-bot-api": "^0.50.0"
   }
